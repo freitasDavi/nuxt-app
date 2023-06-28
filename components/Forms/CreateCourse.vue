@@ -7,19 +7,19 @@ const newCourse = ref({
 // const newCourseCategory = useState('newCoursCategory', () => '');
 
 const onClear = () => {
-    console.log(newCourse.value);
 
     newCourse.value.name = '';
     newCourse.value.category = '';
 }
 
 const onCreateNewCourse = async () => {
-    await useFetch('http://localhost:8080/api/courses', {
+    await useFetch('https://127.0.0.1:7155/api/Courses', {
         method: "POST",
+        server: true,
         body: {
             name: newCourse.value.name,
             category: newCourse.value.category
-        }
+        },
     });
 
     refreshNuxtData('course-list');
