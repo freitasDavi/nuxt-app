@@ -16,12 +16,18 @@ const closeModal = () => {
 
 const { data: courses, error, pending, refresh } = await useFetch('https://localhost:7155/api/Courses', {
     key: "course-list",
-    server: false
+    server: false,
+    headers: {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGF2aXplaXJhIiwicm9sZSI6ImVtcGxveWVlIiwibmJmIjoxNjg4MjUwMzg5LCJleHAiOjE2ODgyNTc1ODksImlhdCI6MTY4ODI1MDM4OX0.5Z9Gl7zpQpFpYEJV4304XkWPbnOQB_is8E9373EN8dA"
+    }
 })
 
 const onRemove = async (id) => {
     await useFetch(`https://127.0.0.1:7155/api/Courses/${id}`, {
         method: "DELETE",
+        headers: {
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGF2aXplaXJhIiwicm9sZSI6ImVtcGxveWVlIiwibmJmIjoxNjg4MjUwMzg5LCJleHAiOjE2ODgyNTc1ODksImlhdCI6MTY4ODI1MDM4OX0.5Z9Gl7zpQpFpYEJV4304XkWPbnOQB_is8E9373EN8dA"
+        }
     });
 
     refresh();
@@ -36,6 +42,9 @@ const onUpdateCourse = async () => {
             id: updateCourse.value.id,
             name: updateCourse.value.name,
             category: updateCourse.value.category
+        },
+        headers: {
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGF2aXplaXJhIiwicm9sZSI6ImVtcGxveWVlIiwibmJmIjoxNjg4MjUwMzg5LCJleHAiOjE2ODgyNTc1ODksImlhdCI6MTY4ODI1MDM4OX0.5Z9Gl7zpQpFpYEJV4304XkWPbnOQB_is8E9373EN8dA"
         }
     });
 

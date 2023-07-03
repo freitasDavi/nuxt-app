@@ -20,6 +20,9 @@ const onCreateNewCourse = async () => {
             name: newCourse.value.name,
             category: newCourse.value.category
         },
+        headers: {
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGF2aXplaXJhIiwicm9sZSI6ImVtcGxveWVlIiwibmJmIjoxNjg4MjUwMzg5LCJleHAiOjE2ODgyNTc1ODksImlhdCI6MTY4ODI1MDM4OX0.5Z9Gl7zpQpFpYEJV4304XkWPbnOQB_is8E9373EN8dA"
+        }
     });
 
     refreshNuxtData('course-list');
